@@ -39,7 +39,6 @@ const GithubSection = () => {
 
         // Log all fetched repositories
         console.log("Fetched All Repositories:", repos);
-
         // Fetch commits count for each repository
         const reposWithCommits = await Promise.all(
           repos.map(async (repo) => {
@@ -59,6 +58,7 @@ const GithubSection = () => {
 
         // Sort by commits (descending) and then by last updated
         const sortedRepos = reposWithCommits
+          .filter(repo => (repo.name !== "udaysk3.github.io" && repo.name !== "MyPortfolio"))
           .sort((a, b) => b.commitsCount - a.commitsCount)
           .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
           .slice(0, 6); // Get top 6 repos
