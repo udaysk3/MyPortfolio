@@ -23,10 +23,11 @@ const GithubSection = () => {
             `https://api.github.com/users/udaysk3/repos?per_page=${perPage}&page=${page}&type=public`,
             {
               headers: {
-                'Authorization': 'token PROCESS.ENV.github_token',
+                'Authorization': `token ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
               },
             }
           );
+          console.log(process.env.NEXT_PUBLIC_GITHUB_TOKEN);
 
           const data = await response.json();
 
@@ -47,7 +48,7 @@ const GithubSection = () => {
               {
                 headers: {
                   'User-Agent': 'YourRepoName',
-                  'Authorization': 'token PROCESS.ENV.github_token',
+                  'Authorization': `token ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
                 },
               }
             );
