@@ -23,7 +23,7 @@ const GithubSection = () => {
             `https://api.github.com/users/udaysk3/repos?per_page=${perPage}&page=${page}&type=public`,
             {
               headers: {
-                'Authorization': 'token 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',
+                'Authorization': 'token PROCESS.ENV.github_token',
               },
             }
           );
@@ -47,7 +47,7 @@ const GithubSection = () => {
               {
                 headers: {
                   'User-Agent': 'YourRepoName',
-                  'Authorization': 'token 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',
+                  'Authorization': 'token PROCESS.ENV.github_token',
                 },
               }
             );
